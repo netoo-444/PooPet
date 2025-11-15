@@ -9,7 +9,6 @@ Sistema para gerenciar adoção de animais com cadastro, triagem, reservas, ado�
 
 ### 1. Animal
 - Gerencia informações básicas do animal
-- Estados: DISPONIVEL, RESERVADO, ADOTADO, DEVOLVIDO, QUARENTENA, INADOTAVEL
 
 ### 2. Quarentena
 - Controla períodos de quarentena para animais devolvidos ou com problemas de saúde
