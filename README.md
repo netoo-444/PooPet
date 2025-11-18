@@ -42,3 +42,21 @@ Implementar uma solução em Python que permita o controle eficiente de animais 
 | **Devolucao** | Associação | **Animal** | 1 para 1 | Cada devolução registra o retorno de **um único** animal. |
 | **Devolucao** | Associação | **Adotante** | 1 para N | Um adotante pode ter **várias** devoluções registradas. |
 ---
+
+
+## 🚀 Como Executar o PooPet
+
+Siga os passos abaixo para clonar e rodar o Sistema de Adoção de Animais **PooPet** na sua máquina.
+
+### 1. Clone o Repositório
+
+Abra o seu terminal ou prompt de comando:
+
+```bash
+# Clone o repositório oficial
+git clone https://github.com/netoo-444/PooPet.git
+
+exemplo: cd "/home/pc/Desktop/PooPet"
+
+# Entre na pasta do projeto
+cd PooPet
