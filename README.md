@@ -43,6 +43,20 @@ Implementar uma solução em Python que permita o controle eficiente de animais 
 | **Devolucao** | Associação | **Adotante** | 1 para N | Um adotante pode ter **várias** devoluções registradas. |
 ---
 
+## 🛠️ Tecnologias e Dependências
+
+### 🐍 Linguagem e Ambiente
+
+* **Python 3.x**: Linguagem principal, utilizada para a implementação da Programação Orientada a Objetos (POO).
+* **CLI (Terminal)**: A interface de execução primária para as interações do usuário.
+
+### 💾 Persistência e Testes
+
+* **JSON**: Formato de arquivo utilizado para a persistência simples de dados (salvar e carregar objetos de domínio, como `Animal` e `Adotante`).
+* **Pytest**: Framework de testes Python essencial para garantir a correta aplicação das Regras de Negócio e o funcionamento dos testes unitários.
+
+
+
 
 ## 🚀 Como Executar o PooPet
 
