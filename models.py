@@ -44,3 +44,33 @@ class Relatorios:
     e a identificação dos animais mais/menos adotados.
     """
     pass
+
+class Reserva:
+    """
+    Classe de Transação que registra o bloqueio temporário (48h) de um Animal
+    por um Adotante, controlando o prazo de expiração.
+    """
+    pass
+
+class Evento:
+    """
+    Classe de dados simples que representa um registro de ocorrência no histórico do Animal.
+    É responsável por armazenar a data, o tipo de evento (vacina, mudança de status)
+    """
+    pass
+
+class Cachorro(Animal):
+    """
+    Subclasse que herda de Animal, especializando atributos e comportamentos caninos,
+    como a sociabilidade com outros pets.
+    """
+    pass
+
+class Gato(Animal):
+    """
+    Subclasse que herda de Animal, especializando atributos e comportamentos felinos,
+    como o uso da caixa de areia.
+    """
+    pass
+
+
