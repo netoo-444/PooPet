@@ -207,8 +207,7 @@ class Cachorro(Animal):
 
 class Gato(Animal):
     """
-    Subclasse que herda de Animal, especializando atributos e comportamentos felinos,
-    como o uso da caixa de areia.
+    Subclasse que herda de Animal, especializando atributos e comportamentos felinos
     """
     def __init__(self, id: int, raca: str, nome: str, sexo: str, idade_meses: int, 
                 porte: str, temperamento: List[str], usa_caixa_areia: bool):
