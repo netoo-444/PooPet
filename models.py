@@ -197,7 +197,6 @@ class Reserva:
 class Cachorro(Animal):
     """
     Subclasse que herda de Animal, especializando atributos e comportamentos caninos,
-    como a sociabilidade com outros pets.
     """
     def __init__(self, id: int, raca: str, nome: str, sexo: str, idade_meses: int, 
                 porte: str, temperamento: List[str], sociavel_com_gatos: bool):
