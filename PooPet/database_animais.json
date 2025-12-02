@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "especie": "Cachorro",
+        "nome": "Rex",
+        "status": "ADOTADO",
+        "historico": [
+            {
+                "tipo": "Mudança de Status",
+                "descricao": "De DISPONIVEL para RESERVADO",
+                "data": "2025-12-02T09:12:50.219051"
+            },
+            {
+                "tipo": "Mudança de Status",
+                "descricao": "De RESERVADO para ADOTADO",
+                "data": "2025-12-02T09:12:50.219112"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "especie": "Gato",
+        "nome": "Mimi",
+        "status": "DISPONIVEL",
+        "historico": []
+    }
+]

@@ -78,8 +78,7 @@ dmypy.json
 
 .vscode/
 
-*.json
-!settings.json
+
 
 # Arquivos de sistema operacional
 .DS_Store
