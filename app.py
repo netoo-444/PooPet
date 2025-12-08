@@ -1,47 +1,90 @@
-from models import Cachorro, Adotante, Gato
-from repository import Repositorio
+from logic import SistemaAdocao
+import os
+
+def limpar_tela():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def exibir_menu():
+    print("\n--- 🐕 SISTEMA POOPET ---")
+    print("1. Cadastrar Animal")
+    print("2. Cadastrar Adotante")
+    print("3. Realizar Adoção")
+    print("4. Listar Animais")
+    print("0. Sair e Salvar")
+    return input("Escolha uma opção: ")
 
 def main():
-    print("--- 🐕 SISTEMA POOPET ---")
+    sistema = SistemaAdocao()
 
+    while True:
+        opcao = exibir_menu()
 
-    repo = Repositorio()
-    animais_cadastrados = []
-    adocoes_realizadas = []
+        if opcao == "1":
+            print("\n--- Novo Animal ---")
+            tipo = input("Tipo (Cachorro/Gato): ").upper()
+            nome = input("Nome: ")
+            
+            animal = sistema.cadastrar_animal(tipo, nome)
+            print(f"✅ {animal.nome} cadastrado com sucesso!")
 
+        elif opcao == "2":
+            print("\n--- Novo Adotante ---")
+            nome = input("Nome: ")
+            try:
+                idade = int(input("Idade: "))
+                moradia = input("Moradia (Casa/Apartamento): ")
+                
+                adotante = sistema.cadastrar_adotante(nome, idade, moradia)
+                print(f"✅ {adotante.nome} cadastrado!")
+            except ValueError:
+                print("❌ Idade deve ser um número.")
 
-    rex = Cachorro(1, "Vira-lata", "Rex", "M", 12, "M", ["Dócil"], True)
-    mimi = Gato(2, "Siamês", "Mimi", "F", 24, "P", ["Manso"], True)
-    
-    animais_cadastrados.append(rex)
-    animais_cadastrados.append(mimi)
+        elif opcao == "3":
+            print("\n--- Realizar Adoção ---")
+            
+            # Listar Adotantes
+            for i, a in enumerate(sistema.adotantes):
+                print(f"{i}. {a.nome} (Idade: {a.idade})")
+            
+            try:
+                idx_adotante = int(input("Escolha o ID do Adotante: "))
+            except ValueError:
+                print("❌ Entrada inválida.")
+                continue
 
+            # Listar Animais Disponíveis
+            disponiveis = sistema.listar_animais_disponiveis()
+            if not disponiveis:
+                print("❌ Nenhum animal disponível.")
+                continue
 
-    joao = Adotante(1, "Joao Silva", 30, "Casa", 100.0, False, True, False)
+            for i, a in enumerate(disponiveis):
+                print(f"{i}. {a.nome} ({a.especie})")
+            
+            try:
+                idx_animal = int(input("Escolha o ID do Animal: "))
+            except ValueError:
+                print("❌ Entrada inválida.")
+                continue
 
-    
-    print(f"\n1. Status inicial de {rex.nome}: {rex.status}")
-    
-    try:
-        reserva = joao.solicitar_reserva(rex)
-        print(f"2. Reserva realizada para: {reserva.animal.nome}")
-        print(f"3. Novo Status de {rex.nome}: {rex.status}")
-    except ValueError as e:
-        print(e)
+            # Processar
+            print(f"\nProcessando adoção...")
+            sucesso, mensagem = sistema.processar_adocao(idx_adotante, idx_animal)
+            print(mensagem)
 
-    adocao = joao.finalizar_adocao(rex, taxa=50.0)
-    adocoes_realizadas.append(adocao)
-    print(f"4. Adoção finalizada! Status final: {rex.status}")
+        elif opcao == "4":
+            print("\n--- Lista de Animais ---")
+            for resumo in sistema.listar_animais():
+                print(resumo)
 
-
-    print("\n--- SALVANDO DADOS ---")
-    repo.salvar_dados(animais_cadastrados, adocoes_realizadas)
-
-    
-    print("\n--- 📊 RELATÓRIO SIMPLES ---")
-    dados_lidos = repo.carregar_dados()
-    for item in dados_lidos:
-        print(f"ID: {item['id']} | Nome: {item['nome']} | Status: {item['status']}")
+        elif opcao == "0":
+            print("\nSalvando dados...")
+            sistema.salvar_dados()
+            print("Até logo!")
+            break
+        
+        else:
+            print("Opção inválida.")
 
 if __name__ == "__main__":
     main()

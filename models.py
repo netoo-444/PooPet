@@ -194,13 +194,30 @@ class Adotante:
         nova_adocao = Adocao(animal, self, taxa, "PADRAO")
         return nova_adocao
 
-    def verificar_elegibilidade(self) -> bool:
+    def verificar_elegibilidade(self, animal: Animal = None) -> bool:
         """
         Usa os dados encapsulados para determinar se o adotante é elegível.
+        Regras:
+        1. Maior de 18 anos.
+        2. Se tiver crianças, precisa ter experiência prévia.
+        3. Se o animal for Grande, não pode morar em Apartamento pequeno.
         """
-    
+        # Regra 1: Idade Mínima
+        if self.idade < 18:
+            print(f"❌ Reprovado: Adotante menor de idade ({self.idade} anos).")
+            return False
+
+        # Regra 2: Crianças vs Experiência
         if self._possui_criancas and not self._experiencia_pets:
+            print("❌ Reprovado: Possui crianças mas não tem experiência com pets.")
             return False 
+        
+        # Regra 3: Porte vs Moradia (se um animal for passado para verificação)
+        if animal:
+            if animal.porte == "G" and self.moradia.lower() == "apartamento" and self.area_util < 80:
+                print("❌ Reprovado: Animal de grande porte requer mais espaço ou casa.")
+                return False
+
         return True
     
     def to_dict(self):
