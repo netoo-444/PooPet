@@ -1,0 +1,16 @@
+{
+    "idade_minima_adotante": 18,
+    "reserva_horas": 48,
+    "pesos_compatibilidade": {
+        "moradia_casa": 30,
+        "moradia_apto_pequeno": -20,
+        "quintal": 20,
+        "experiencia": 15,
+        "criancas_vs_animal_agitado": -30
+    },
+    "taxas": {
+        "base": 50.0,
+        "desconto_idoso": 0.5,
+        "acrescimo_filhote": 1.2
+    }
+}
