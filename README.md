@@ -13,7 +13,7 @@ Implementar uma solução em Python que permita o controle eficiente de animais 
 
 ---
 
-## 3. Estrutura de Classes Implementada (UML Textual)
+##  Estrutura de Classes Implementada (UML Textual)
 
 ### A. Classes, Atributos e Métodos Principais
 
